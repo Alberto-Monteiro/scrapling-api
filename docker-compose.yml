@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  scrapling-api:
+    build: .
+    container_name: scrapling_api_service
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+      - HEADLESS=True
+    # Mount playwright cache or browsers if needed, though they are pre-installed in the base image
+    restart: unless-stopped
