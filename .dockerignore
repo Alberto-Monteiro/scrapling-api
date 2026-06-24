@@ -1,0 +1,15 @@
+.git
+.gitignore
+.DS_Store
+.idea
+__pycache__
+*.py[cod]
+.pytest_cache
+.mypy_cache
+.ruff_cache
+.scrapling_fingerprints
+*.log
+docker-compose.yml
+README.md
+README.pt.md
+LICENSE

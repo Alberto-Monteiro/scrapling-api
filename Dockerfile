@@ -2,6 +2,13 @@ FROM ghcr.io/d4vinci/scrapling:latest
 
 WORKDIR /app
 
+# Apply distro security updates available in the browser/runtime base image.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends --only-upgrade openssl libssl3t64 \
+    && apt-get purge -y --auto-remove xvfb xserver-common x11-xkb-utils \
+    && rm -rf /app/.venv /usr/bin/uv /usr/bin/uvx \
+    && rm -rf /var/lib/apt/lists/*
+
 # Copy requirements
 COPY requirements.txt /app/
 
